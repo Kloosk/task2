@@ -2,15 +2,19 @@
 const reverseString = str => {
     return str.split("").reverse().join("");
 };
+//console.log(reverseString("hi im Łukasz"));
+
 // 2. Please write a function that filters out numbers from a list
-//only type number
+//only typeof === number
 const outNumbers = arr => {
     return arr.filter(el => typeof el === 'number' && isNaN(el) === false)
 };
-//with number in string
+//typeof === number && typeof === string
 const outNumbersString = arr => {
     return arr.filter(el => isNaN(el) === false)
 };
+//console.log(outNumbersString([1,"a","a1","1a","123456"]));
+//console.log(outNumbers([1,"a","a1","1a","123456"]));
 
 // 3. Please write a function that shows the usage of closures
 const scope = () => {
@@ -22,22 +26,25 @@ const scope = () => {
 };
 const closures = scope();
 //console.log(closures());
+
 // 4. Please write a recursive function that flattens an list of items
 // example input [[2, [4, [44,5,6]]], [4,5,6], [[2,4], 4], 5]]
 // example output [2, 4, 44, 5, 6, 4, 5, 6, 2, 4, 4, 5]
-const exampleInputArr = [[2, [4, [44,5,6]]], [4,5,6], [[2,4], 4], 5];
+
 const flattens = arr => {
     return arr.flat(Infinity);
 };
+//const exampleInputArr = [[2, [4, [44,5,6]]], [4,5,6], [[2,4], 4], 5];
+//console.log(flattens(exampleInputArr));
 
 // 5. Please write a function that finds all common elements of two arrays(only primitive types as array elements, order doesn't matter)
 // example inputs ['b', 3, 4, 76, 'c'], ['a', 'b', 4, 76, 21, 'e']
 // example output ['b', 4, 76]
-
 const commonElements = (arr1,arr2) => {
     const arr1WithoutDuplicate = [...new Set(arr1)]; //converting to set makes each element unique
     return arr1WithoutDuplicate.filter(el => arr2.includes(el));
 };
+//console.log(commonElements(['b', 3, 4, 76, 'c'], ['a', 'b', 4, 76, 21, 'e']));
 
 // 6. Please write a function that finds all different elements of two arrays(only primitive types as array elements, order doesn't matter)
 // example inputs ['b', 3, 4, 76, 'c'], ['a', 'b', 4, 76, 21, 'e']
@@ -47,6 +54,7 @@ const differentElements = (arr1,arr2) => {
     const arr2Diff = arr2.filter(x => !arr1.includes(x));
     return arr1Diff.concat(arr2Diff);
 };
+//console.log(differentElements(['b', 3, 4, 76, 'c'], ['a', 'b', 4, 76, 21, 'e']));
 
 // 7. Please write a function that transforms an object to a list of [key, value] tuples.
 // example input { color: 'Blue', id: '22', size: 'xl' }
@@ -55,6 +63,7 @@ const differentElements = (arr1,arr2) => {
 const transformToArr = obj => {
   return Object.entries(obj);//I didn't know a nice way to do this but I found this great method on MDN
 };
+//console.log(transformToArr({ color: 'Blue', id: '22', size: 'xl' }));
 
 // 8. Please write a function that transforms a list of [key, value] tuples to object. // reverse or task 7
 // example input [['color', 'blue'], ['id', '22'], ['size', 'xl']]
@@ -62,6 +71,7 @@ const transformToArr = obj => {
 const transformFromArr = entries => {
     return Object.fromEntries(entries);
 };
+//console.log(transformFromArr([['color', 'blue'], ['id', '22'], ['size', 'xl']]));
 
 // 9. Please write a function that takes two arrays of items and returns an array of tuples made from two input arrays at the same indexes. Excessive items should be dropped.
 // example input [1,2,3], [4,5,6,7]
